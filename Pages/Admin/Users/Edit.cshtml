@@ -7,35 +7,35 @@
 <h1>Edit User</h1>
 
 <form method="post" class="col-md-6">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div asp-validation-summary="ModelOnly"></div>
     <input type="hidden" asp-for="Input.Id" />
 
     <div class="mb-3">
         <label asp-for="Input.FullName" class="form-label"></label>
         <input asp-for="Input.FullName" class="form-control" />
-        <span asp-validation-for="Input.FullName" class="text-danger"></span>
+        <span asp-validation-for="Input.FullName"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Input.Email" class="form-label"></label>
         <input asp-for="Input.Email" class="form-control" />
-        <span asp-validation-for="Input.Email" class="text-danger"></span>
+        <span asp-validation-for="Input.Email"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Input.NewPassword" class="form-label"></label>
         <input asp-for="Input.NewPassword" class="form-control" />
-        <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+        <span asp-validation-for="Input.NewPassword"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Input.Role" class="form-label"></label>
         <select asp-for="Input.Role" class="form-select" asp-items="Html.GetEnumSelectList<Moto_Taxi_Maintenance_Tracker.Models.UserRole>()"></select>
-        <span asp-validation-for="Input.Role" class="text-danger"></span>
+        <span asp-validation-for="Input.Role"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn">Save</button>
+    <a asp-page="Index" class="btn">Cancel</a>
 </form>
 
 @section Scripts {

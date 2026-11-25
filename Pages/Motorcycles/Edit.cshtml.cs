@@ -38,7 +38,7 @@ public class EditModel : PageModel
     {
         if (await _context.Motorcycles.AnyAsync(m => m.PlateNumber == Motorcycle.PlateNumber && m.Id != Motorcycle.Id))
         {
-            ModelState.AddModelError(nameof(Motorcycle.PlateNumber), "A motorcycle with this plate number already exists.");
+            ModelState.AddModelError($"{nameof(Motorcycle)}.{nameof(Motorcycle.PlateNumber)}", "A motorcycle with this plate number already exists.");
         }
 
         if (!ModelState.IsValid)

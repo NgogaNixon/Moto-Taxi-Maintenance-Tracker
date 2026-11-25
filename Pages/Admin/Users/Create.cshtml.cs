@@ -29,7 +29,7 @@ public class CreateModel : PageModel
     {
         if (await _context.Users.AnyAsync(u => u.Email == Input.Email))
         {
-            ModelState.AddModelError(nameof(Input.Email), "A user with this email already exists.");
+            ModelState.AddModelError($"{nameof(Input)}.{nameof(Input.Email)}", "A user with this email already exists.");
         }
 
         if (!ModelState.IsValid)

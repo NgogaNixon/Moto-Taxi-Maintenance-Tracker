@@ -7,22 +7,22 @@
 <h1>Add Garage</h1>
 
 <form method="post" class="col-md-6">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div asp-validation-summary="ModelOnly"></div>
 
     <div class="mb-3">
         <label asp-for="Garage.Name" class="form-label"></label>
         <input asp-for="Garage.Name" class="form-control" />
-        <span asp-validation-for="Garage.Name" class="text-danger"></span>
+        <span asp-validation-for="Garage.Name"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Garage.Location" class="form-label"></label>
         <input asp-for="Garage.Location" class="form-control" />
-        <span asp-validation-for="Garage.Location" class="text-danger"></span>
+        <span asp-validation-for="Garage.Location"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn">Save</button>
+    <a asp-page="Index" class="btn">Cancel</a>
 </form>
 
 @section Scripts {
