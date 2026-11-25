@@ -7,12 +7,12 @@
 <h1>Garages</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">+ Add Garage</a>
+    <a asp-page="Create" class="btn">+ Add Garage</a>
 </p>
 
 @if (!Model.Garages.Any())
 {
-    <p class="text-muted">No garages found.</p>
+    <p>No garages found.</p>
 }
 else
 {
@@ -31,8 +31,8 @@ else
                     <td>@garage.Name</td>
                     <td>@garage.Location</td>
                     <td>
-                        <a asp-page="Edit" asp-route-id="@garage.Id" class="btn btn-sm btn-outline-primary">Edit</a>
-                        <a asp-page="Delete" asp-route-id="@garage.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                        <a asp-page="Edit" asp-route-id="@garage.Id" class="btn btn-sm">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@garage.Id" class="btn btn-sm">Delete</a>
                     </td>
                 </tr>
             }

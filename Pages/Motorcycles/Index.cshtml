@@ -7,7 +7,7 @@
 <h1>Motorcycles</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">+ Register Motorcycle</a>
+    <a asp-page="Create" class="btn">+ Register Motorcycle</a>
 </p>
 
 <form method="get" class="row g-2 mb-3">
@@ -15,19 +15,19 @@
         <input type="text" name="SearchPlate" value="@Model.SearchPlate" class="form-control" placeholder="Search by plate number..." />
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-outline-secondary">Search</button>
+        <button type="submit" class="btn">Search</button>
     </div>
     @if (!string.IsNullOrWhiteSpace(Model.SearchPlate))
     {
         <div class="col-auto">
-            <a asp-page="Index" class="btn btn-link">Clear</a>
+            <a asp-page="Index" class="btn">Clear</a>
         </div>
     }
 </form>
 
 @if (!Model.Motorcycles.Any())
 {
-    <p class="text-muted">No motorcycles found.</p>
+    <p>No motorcycles found.</p>
 }
 else
 {
@@ -50,8 +50,8 @@ else
                     <td>@moto.Year</td>
                     <td>@(moto.Owner?.FullName ?? "—")</td>
                     <td>
-                        <a asp-page="Edit" asp-route-id="@moto.Id" class="btn btn-sm btn-outline-primary">Edit</a>
-                        <a asp-page="Delete" asp-route-id="@moto.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                        <a asp-page="Edit" asp-route-id="@moto.Id" class="btn btn-sm">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@moto.Id" class="btn btn-sm">Delete</a>
                     </td>
                 </tr>
             }
