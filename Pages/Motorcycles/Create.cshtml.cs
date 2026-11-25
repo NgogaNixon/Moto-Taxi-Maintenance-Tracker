@@ -52,6 +52,6 @@ public class CreateModel : PageModel
             .OrderBy(u => u.FullName)
             .ToListAsync();
 
-        OwnerList = new SelectList(owners, nameof(User.Id), nameof(User.FullName));
+        OwnerList = new SelectList(owners, nameof(Models.User.Id), nameof(Models.User.FullName));
     }
 }
