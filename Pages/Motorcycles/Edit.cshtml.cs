@@ -72,6 +72,6 @@ public class EditModel : PageModel
             .OrderBy(u => u.FullName)
             .ToListAsync();
 
-        OwnerList = new SelectList(owners, nameof(User.Id), nameof(User.FullName), Motorcycle.OwnerId);
+        OwnerList = new SelectList(owners, nameof(Models.User.Id), nameof(Models.User.FullName), Motorcycle.OwnerId);
     }
 }
