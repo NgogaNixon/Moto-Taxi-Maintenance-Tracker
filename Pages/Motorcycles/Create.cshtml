@@ -1,0 +1,44 @@
+@page
+@model Moto_Taxi_Maintenance_Tracker.Pages.Motorcycles.CreateModel
+@{
+    ViewData["Title"] = "Register Motorcycle";
+}
+
+<h1>Register Motorcycle</h1>
+
+<form method="post" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Motorcycle.PlateNumber" class="form-label"></label>
+        <input asp-for="Motorcycle.PlateNumber" class="form-control" />
+        <span asp-validation-for="Motorcycle.PlateNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Motorcycle.Model" class="form-label"></label>
+        <input asp-for="Motorcycle.Model" class="form-control" />
+        <span asp-validation-for="Motorcycle.Model" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Motorcycle.Year" class="form-label"></label>
+        <input asp-for="Motorcycle.Year" class="form-control" />
+        <span asp-validation-for="Motorcycle.Year" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Motorcycle.OwnerId" class="form-label">Owner</label>
+        <select asp-for="Motorcycle.OwnerId" asp-items="Model.OwnerList" class="form-select">
+            <option value="">-- select owner --</option>
+        </select>
+        <span asp-validation-for="Motorcycle.OwnerId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -7,4 +7,15 @@
     <RootNamespace>Moto_Taxi_Maintenance_Tracker</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- EF Core data access (Motorcycles/Garages/Users tables) -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <!-- Lightweight password hashing for the Admin "manage users" page (no full Identity membership system) -->
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.10" />
+  </ItemGroup>
+
 </Project>

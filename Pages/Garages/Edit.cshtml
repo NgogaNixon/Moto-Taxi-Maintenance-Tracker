@@ -1,0 +1,31 @@
+@page "{id:int}"
+@model Moto_Taxi_Maintenance_Tracker.Pages.Garages.EditModel
+@{
+    ViewData["Title"] = "Edit Garage";
+}
+
+<h1>Edit Garage</h1>
+
+<form method="post" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Garage.Id" />
+
+    <div class="mb-3">
+        <label asp-for="Garage.Name" class="form-label"></label>
+        <input asp-for="Garage.Name" class="form-control" />
+        <span asp-validation-for="Garage.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Garage.Location" class="form-label"></label>
+        <input asp-for="Garage.Location" class="form-control" />
+        <span asp-validation-for="Garage.Location" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
