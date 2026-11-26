@@ -30,6 +30,10 @@ namespace Moto_Taxi_Maintenance_Tracker.Models
         public string? Priority { get; set; }
 
         public string? AdminNotes { get; set; }
+
+        public Motorcycle? Motorcycle { get; set; }
+
+        public User? User { get; set; }
     }
 
 }

@@ -1,0 +1,44 @@
+﻿@page
+@model Moto_Taxi_Maintenance_Tracker.Pages.Requests.IndexModel
+
+@{
+    ViewData["Title"] = "Service Requests";
+}
+
+<h2>Service Requests</h2>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">
+        Create New Request
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Motorcycle ID</th>
+            <th>User ID</th>
+            <th>Service Type</th>
+            <th>Description</th>
+            <th>Request Date</th>
+            <th>Status</th>
+            <th>Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model.Requests)
+        {
+            <tr>
+                <td>@request.ServiceRequestId</td>
+                <td>@request.MotorcycleId</td>
+                <td>@request.UserId</td>
+                <td>@request.ServiceType</td>
+                <td>@request.Description</td>
+                <td>@request.RequestDate.ToShortDateString()</td>
+                <td>@request.Status</td>
+                <td>@request.Priority</td>
+            </tr>
+        }
+    </tbody>
+</table>

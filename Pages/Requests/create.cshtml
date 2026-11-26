@@ -1,0 +1,54 @@
+﻿@page
+@model Moto_Taxi_Maintenance_Tracker.Pages.Requests.CreateModel
+
+@{
+    ViewData["Title"] = "Create Service Request";
+}
+
+<h2>Create Service Request</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="ServiceRequest.MotorcycleId" class="form-label">
+            Motorcycle ID
+        </label>
+        <input asp-for="ServiceRequest.MotorcycleId" class="form-control" />
+        <span asp-validation-for="ServiceRequest.MotorcycleId"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ServiceRequest.ServiceType" class="form-label">
+            Service Type
+        </label>
+        <input asp-for="ServiceRequest.ServiceType" class="form-control" />
+        <span asp-validation-for="ServiceRequest.ServiceType"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ServiceRequest.Description" class="form-label">
+            Description
+        </label>
+        <textarea asp-for="ServiceRequest.Description"
+                  class="form-control"></textarea>
+        <span asp-validation-for="ServiceRequest.Description"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ServiceRequest.Priority" class="form-label">
+            Priority
+        </label>
+        <select asp-for="ServiceRequest.Priority" class="form-select">
+            <option value="">Select Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit Request
+    </button>
+</form>

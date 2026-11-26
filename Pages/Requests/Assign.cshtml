@@ -1,0 +1,47 @@
+﻿@page "{id:int}"
+@model Moto_Taxi_Maintenance_Tracker.Pages.Requests.AssignModel
+
+@{
+    ViewData["Title"] = "Assign Mechanic";
+}
+
+<h2>Assign Mechanic</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger"></div>
+
+    <input type="hidden" asp-for="Repair.ServiceRequestId" />
+
+    <div class="mb-3">
+        <label asp-for="Repair.MechanicId" class="form-label">
+            Select Mechanic
+        </label>
+
+        <select asp-for="Repair.MechanicId"
+                asp-items="Model.Mechanics"
+                class="form-select">
+            <option value="">-- Select Mechanic --</option>
+        </select>
+
+        <span asp-validation-for="Repair.MechanicId"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Repair.RepairNotes" class="form-label">
+            Repair Notes
+        </label>
+
+        <textarea asp-for="Repair.RepairNotes"
+                  class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Assign Mechanic
+    </button>
+
+    <a asp-page="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+</form>
