@@ -1,0 +1,41 @@
+@page
+@model Moto_Taxi_Maintenance_Tracker.Pages.Garages.IndexModel
+@{
+    ViewData["Title"] = "Garages";
+}
+
+<h1>Garages</h1>
+
+<p>
+    <a asp-page="Create" class="btn">+ Add Garage</a>
+</p>
+
+@if (!Model.Garages.Any())
+{
+    <p>No garages found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var garage in Model.Garages)
+            {
+                <tr>
+                    <td>@garage.Name</td>
+                    <td>@garage.Location</td>
+                    <td>
+                        <a asp-page="Edit" asp-route-id="@garage.Id" class="btn btn-sm">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@garage.Id" class="btn btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
