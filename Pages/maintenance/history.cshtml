@@ -1,0 +1,54 @@
+﻿@page
+@model Moto_Taxi_Maintenance_Tracker.Pages.Maintenance.HistoryModel
+
+@{
+    ViewData["Title"] = "Maintenance History";
+}
+
+<h2>Motorcycle Maintenance History</h2>
+
+<form method="get" class="mb-3">
+    <label for="motorcycleId" class="form-label">
+        Motorcycle ID
+    </label>
+
+    <input type="number"
+           id="motorcycleId"
+           name="motorcycleId"
+           min="1"
+           class="form-control"
+           required />
+
+    <button type="submit" class="btn btn-primary mt-2">
+        View History
+    </button>
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Repair ID</th>
+            <th>Service Request ID</th>
+            <th>Repair Status</th>
+            <th>Repair Notes</th>
+            <th>Labour Cost</th>
+            <th>Start Date</th>
+            <th>Completed Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var repair in Model.Repairs)
+        {
+            <tr>
+                <td>@repair.Id</td>
+                <td>@repair.ServiceRequestId</td>
+                <td>@repair.Status</td>
+                <td>@repair.RepairNotes</td>
+                <td>@repair.LabourCost</td>
+                <td>@repair.StartDate?.ToShortDateString()</td>
+                <td>@repair.CompletedDate?.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

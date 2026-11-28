@@ -1,0 +1,43 @@
+﻿@page
+@model Moto_Taxi_Maintenance_Tracker.Pages.Jobs.IndexModel
+
+@{
+    ViewData["Title"] = "My Jobs";
+}
+
+<h2>Assigned Repair Jobs</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Job ID</th>
+            <th>Service Request</th>
+            <th>Mechanic</th>
+            <th>Status</th>
+            <th>Repair Notes</th>
+            <th>Labour Cost</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var job in Model.Jobs)
+        {
+            <tr>
+                <td>@job.Id</td>
+                <td>@job.ServiceRequestId</td>
+                <td>@job.Mechanic?.FullName</td>
+                <td>@job.Status</td>
+                <td>@job.RepairNotes</td>
+                <td>@job.LabourCost</td>
+                <td>
+                    <a asp-page="Update"
+                       asp-route-id="@job.Id"
+                       class="btn btn-primary btn-sm">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

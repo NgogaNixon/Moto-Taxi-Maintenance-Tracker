@@ -1,30 +1,39 @@
-
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Moto_Taxi_Maintenance_Tracker.Data;
 using Moto_Taxi_Maintenance_Tracker.Models;
 
 namespace Moto_Taxi_Maintenance_Tracker.Pages.Requests
 {
-    public class IndexModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public IndexModel(ApplicationDbContext context)
+        public CreateModel (ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public IList<ServiceRequest> Requests { get; set; }
-            = new List<ServiceRequest>();
+        [BindProperty]
+        public ServiceRequest ServiceRequest { get; set; } = new();
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Requests = await _context.ServiceRequests
-                .Include(r => r.Motorcycle)
-                .Include(r => r.User)
-                .OrderByDescending(r => r.RequestDate)
-                .ToListAsync();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+                return Page();
+
+            ServiceRequest.UserId = 1; // Temporary placeholder
+            ServiceRequest.RequestDate = DateTime.Now;
+            ServiceRequest.Status = "Pending";
+
+            _context.ServiceRequests.Add(ServiceRequest);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("Index");
         }
     }
 }
